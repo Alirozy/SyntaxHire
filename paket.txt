@@ -1,0 +1,31 @@
+1. Çekirdek & API Katmanı (Core & API)
+React ile haberleşecek güçlü bir REST mimarisi kurmak için en temel paketler:
+
+django: Projenin ana çatısı.
+djangorestframework (DRF): API endpoint'leri, serializer yapısı ve view'ları yönetmek için olmazsa olmaz araç.
+django-cors-headers: React (Frontend) farklı bir portta veya sunucuda çalışacağı için tarayıcının CORS (Cross-Origin Resource Sharing) engeline takılmasını önleyen middleware.
+
+2. Kimlik Doğrulama & Güvenlik (Authentication & Security)
+Kullanıcı kayıt, giriş, şirket/yazılımcı yetkilendirmeleri ve güvenlik duvarı için:
+djangorestframework-simplejwt: React ve Django arasında güvenli, token tabanlı (JWT) kimlik doğrulama sağlar. Access ve Refresh token yönetimini otomatikleştirir.
+argon2-cffi: Django'nun varsayılan şifre karma (hashing) sistemini en güvenli modern standartlardan biri olan Argon2 ile değiştirir (2026 siber güvenlik standartları için şiddetle önerilir).
+django-axes: Giriş paneline yapılabilecek kaba kuvvet (Brute-Force) saldırılarını engellemek amacıyla, hatalı giriş denemelerinden sonra hesabı veya IP adresini geçici olarak kilitler.
+
+3. Asenkron İşler & Arka Plan Görevleri (Async & Background Workers)
+Sistemde e-posta gönderimi, reklam sürelerinin kontrolü ve anlık bildirimler gibi sistemi yormayacak işler için:
+celery: Uzun süren işleri (örn: toplu mail atma, haftalık ilan analitiği çıkarma) arka planda kuyruğa alarak asenkron çalıştırır.
+redis: Hem Celery için bir mesaj kuyruğu (Broker) hem de sistem performansı için harika bir önbellek (Cache) deposudur.
+channels & channels-redis: İlerleyen aşamalarda yazılımcıların anlık mesajlaşması veya canlı bildirim alması için WebSockets desteği sağlar.
+
+4. Veritabanı & Dosya Yönetimi (Database & Storage)
+PostgreSQL entegrasyonu ve kullanıcıların yükleyeceği profil/şirket logoları için:
+psycopg2-binary: Django'nun PostgreSQL veritabanı ile kusursuz ve performanslı çalışmasını sağlayan sürücü.
+django-storages: Kullanıcıların yüklediği resimleri, şirket logolarını veya portfolyo dosyalarını yerel sunucuda tutmak yerine AWS S3, Google Cloud Storage veya Azure gibi bulut servislerine doğrudan yüklemek için standart paket.
+pillow: Resim yükleme alanlarında (ImageField) görselleri doğrulamak ve işlemek için gerekli Python kütüphanesi.
+
+
+5. Geliştirme, Filtreleme & Kolaylaştırıcı Araçlar (Utilities)
+Kod kalitesini artırmak ve API işlevselliğini güçlendirmek için:
+django-filter: İlan listeleme sayfasında React'ten gelen isteklere göre (örn: bütçeye göre, yeteneğe göre, ilan tipine göre) API üzerinde çok hızlı filtreleme yapmayı sağlar.
+django-environ: .env dosyası kullanarak SECRET_KEY, veritabanı şifreleri ve API anahtarları gibi hassas verileri kaynak koddan ayırıp güvenli yönetmenizi sağlar.
+django-extensions: Geliştirme sürecinde python manage.py shell_plus komutuyla tüm modelleri otomatik import edilmiş şekilde güçlü bir terminalde test etmenizi sağlar.
