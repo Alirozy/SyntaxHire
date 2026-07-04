@@ -47,6 +47,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-Party Apps (Bir önceki adımda konuştuğumuz paketler)
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
+    'django_filters',
+    'storages',
+    'axes',
+
+    # SyntaxHire Local Apps
+    'core',
+    'accounts',
+    'profiles',
+    'jobs',
+    'networking',
+    'advertisements',
+    'monitoring',
 ]
 
 MIDDLEWARE = [
