@@ -1,0 +1,47 @@
+# --- İşletim Sistemi Dosyaları ---
+.DS_Store
+Thumbs.db
+db.json
+
+# --- Sanal Ortamlar (Virtual Environments) ---
+.venv/
+venv/
+ENV/
+env/
+/env
+/venv
+
+# --- Ortam Değişkenleri ve Gizli Dosyalar (Çok Önemli!) ---
+.env
+*.env
+.env.local
+.env.*.local
+secrets.json
+
+# --- Python ve Derleme Dosyaları ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- IDE ve Editör Ayarları ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- Paket Yöneticileri ve Loglar ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# --- Veri Tabanı ve Docker ---
+.dockercaching
+/db.sqlite3
