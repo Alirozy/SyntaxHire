@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'networking',
     'advertisements',
     'monitoring',
+    'skills',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +139,35 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Argon2 kullanımı için (Paketi kurduğunda Django bunu otomatik algılar)
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+]
+
+# CORS Ayarları
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000", # React portu
+]
+
+# SimpleJWT Ayarları
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'UPDATE_LAST_LOGIN': True,
+
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 
 # Internationalization

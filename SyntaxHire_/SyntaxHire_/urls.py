@@ -21,6 +21,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/accounts/', include('accounts.urls', namespace='accounts')),
+    path('api/profiles/', include('profiles.urls', namespace='profiles')),
+    path('api/skills/', include('skills.urls', namespace='skills')),
 ]
 
 # Geliştirme ortamında media dosyalarını servis etmek için:
