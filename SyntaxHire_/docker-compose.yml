@@ -10,12 +10,12 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
     expose:
-      - "${DB_PORT}:5432"
+      - "${DB_PORT}"
 
   redis:
     image: redis:7-alpine
     expose:
-      - "${REDIS_PORT}:6379"
+      - "${REDIS_PORT}"
     volumes:
       - redis_data:/data
 
