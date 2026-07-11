@@ -45,3 +45,7 @@ logs/
 # --- Veri Tabanı ve Docker ---
 .dockercaching
 /db.sqlite3
+
+# Certbot tarafından üretilen sertifikaları ve gizli anahtarları engelle
+certbot/conf/
+certbot/www/

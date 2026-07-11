@@ -47,6 +47,8 @@ class CustomUser(AbstractUser, TimeStampedModel):
     # Remove the default username field
     username = None
     email = models.EmailField(unique=True, verbose_name="Email Address")
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True, verbose_name="Profile Avatar")
+
 
 
     

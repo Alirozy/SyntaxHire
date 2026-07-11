@@ -31,5 +31,5 @@ class UserSerializer(serializers.ModelSerializer):
     """Serializer to display core user details."""
     class Meta:
         model = User
-        fields = ['id', 'email', 'user_type', 'is_active', 'created_at']
+        fields = ['id', 'email','avatar', 'user_type', 'is_active', 'created_at']
         read_only_fields = ['id', 'created_at']

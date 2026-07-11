@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/accounts/', include('accounts.urls', namespace='accounts')),
     path('api/profiles/', include('profiles.urls', namespace='profiles')),
     path('api/skills/', include('skills.urls', namespace='skills')),
+    path('api/jobs/', include('jobs.urls', namespace='jobs')),
 ]
 
 # Geliştirme ortamında media dosyalarını servis etmek için:
